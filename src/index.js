@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import {createRoot} from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const firstBook = {
+  title: "Become Master Mern Stack Developer",
+  author: "Salman Khan",
+  image:"http://media.geeksforgeeks.org/wp-content/cdn-uploads/20220117153727/React-Desktop-Tutorial.png"
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const BookList = ()=>{
+  return (
+    <section className='booklist' >
+      <Book job={firstBook.title} image={firstBook.image} author={firstBook.author} />
+    </section>
+  );
+}
+
+const author = 'Salman Khan';
+const Book = (props)=>{
+  const title = "Learn ReactJS Library";
+  return (
+    <article className='book'>
+      <img src={props.image} />
+      <h4>{props.author.toUpperCase()}</h4>
+      <h1>{props.job}</h1>
+    </article>
+  );
+}
+
+
+
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<BookList></BookList>);
