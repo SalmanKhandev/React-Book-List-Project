@@ -10,19 +10,22 @@ const firstBook = {
 const BookList = ()=>{
   return (
     <section className='booklist' >
-      <Book job={firstBook.title} image={firstBook.image} author={firstBook.author} />
+      <Book job={firstBook.title} image={firstBook.image} author={firstBook.author} >
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis distinctio fugiat, cupiditate aliquam blanditiis molestiae minima, sunt commodi voluptatum illo numquam maxime quam, neque quia vitae omnis laboriosam iure quas?</p>
+        </Book>
     </section>
   );
 }
 
-const author = 'Salman Khan';
 const Book = (props)=>{
-  const title = "Learn ReactJS Library";
+  console.log(props);
+  const {image,author,job, children} = props;
   return (
     <article className='book'>
-      <img src={props.image} />
-      <h4>{props.author.toUpperCase()}</h4>
-      <h1>{props.job}</h1>
+      <img src={image} />
+      <h4>{author.toUpperCase()}</h4>
+      <h1>{job}</h1>
+      {children}
     </article>
   );
 }
